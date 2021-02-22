@@ -13,5 +13,4 @@ INSERT INTO notes (id, name, modified, folderId, content)
     ("d26e1074-ffaf-11e8-8eb2-f2801f1b9fd1", "Monkeys", "2018-02-05T00:00:00.000Z", "b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1", faker.lorem.paragraphs()),
     ("d26e11a0-ffaf-11e8-8eb2-f2801f1b9fd1", "Bats", "2018-12-01T00:00:00.000Z", "b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1", faker.lorem.paragraphs()),
     ("d26e12c2-ffaf-11e8-8eb2-f2801f1b9fd1", "Turtles", "2018-09-11T23:00:00.000Z", "b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1", faker.lorem.paragraphs()),
-    ("d26e1452-ffaf-11e8-8eb2-f2801f1b9fd1", "Zebras", "2018-08-13T23:00:00.000Z", "b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1", faker.lorem.paragraphs())
-    }
+    ("d26e1452-ffaf-11e8-8eb2-f2801f1b9fd1", "Zebras", "2018-08-13T23:00:00.000Z", "b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1", faker.lorem.paragraphs());
