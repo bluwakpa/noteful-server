@@ -16,27 +16,35 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 
-// app.get('/', (req, res) => {
-//     res.send('Hello, world!')
-// })
+app.get('/', (req, res) => {
+    res.send('Hello, world!')
+})
 
-app.get('/notes', (req, res, next) => {
-    const knexInstance = req.app.get('db')
-    ArticlesService.getAllArticles(knexInstance)
-    .then(articles => {
-        res.json(articles)
-      })
-      .catch(next)
-  });
+app.get('/notes', (req, res) => {
+    res.send('Note')
+})
+
+app.get('/folders', (req, res) => {
+    res.send('Folder')
+})
+
+// app.get('/notes', (req, res, next) => {
+//     const knexInstance = req.app.get('db')
+//     ArticlesService.getAllArticles(knexInstance)
+//     .then(notes => {
+//         res.json(articles)
+//       })
+//       .catch(next)
+//   });
   
-app.get('/folders', (req, res, next) => {
-    const knexInstance = req.app.get('db')
-    ArticlesService.getAllArticles(knexInstance)
-    .then(articles => {
-        res.json(articles)
-      })
-      .catch(next)
-  });
+// app.get('/folders', (req, res, next) => {
+//     const knexInstance = req.app.get('db')
+//     ArticlesService.getAllArticles(knexInstance)
+//     .then(articles => {
+//         res.json(articles)
+//       })
+//       .catch(next)
+//   });
 
 app.use(function errorHandler(error, req, res, next) {
     let response
