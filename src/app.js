@@ -3,6 +3,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
+const knex = require('knex')
 const { NODE_ENV } = require('./config')
 
 const app = express()
@@ -15,9 +16,27 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello, world!')
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello, world!')
+// })
+
+app.get('/notes', (req, res, next) => {
+    const knexInstance = req.app.get('db')
+    ArticlesService.getAllArticles(knexInstance)
+    .then(articles => {
+        res.json(articles)
+      })
+      .catch(next)
+  });
+  
+app.get('/folders', (req, res, next) => {
+    const knexInstance = req.app.get('db')
+    ArticlesService.getAllArticles(knexInstance)
+    .then(articles => {
+        res.json(articles)
+      })
+      .catch(next)
+  });
 
 app.use(function errorHandler(error, req, res, next) {
     let response
