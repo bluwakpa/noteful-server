@@ -46,10 +46,10 @@ foldersRouter
  
  //get, delete, or update a specific folder
 foldersRouter
-  .route('/:folder_id')
+  .route('/:id')
   .all((req, res, next) => { //error checking to see if folder exists before moving to route
     const knexInstance = req.app.get('db');
-    const folderId = req.params.folder_id;
+    const folderId = req.params.id;
 
     FoldersService.getFolderById(knexInstance, folderId)
      .then(folder => {
@@ -71,7 +71,7 @@ foldersRouter
 
 .delete((req, res, next) => {
     const knexInstance = req.app.get('db');
-    const folderToDelete = req.params.folder_id;
+    const folderToDelete = req.params.id;
 
     FoldersService.deleteFolder(knexInstance, folderToDelete)
      .then(() => { res.status(204).end()} )
@@ -80,7 +80,7 @@ foldersRouter
 
 .patch(jsonParser, (req, res, next) => {
     const knexInstance = req.app.get('db');
-    const folderToUpdate = req.params.folder_id;
+    const folderToUpdate = req.params.id;
     const { folder_name } = req.body; //user can only change the folder name currently
     const updatedFolder = { folder_name };
     
