@@ -5,6 +5,8 @@ const cors = require('cors')
 const helmet = require('helmet')
 const knex = require('knex')
 const { NODE_ENV } = require('./config')
+const foldersRouter = require('./folders/folders-router')
+const notesRouter = require('./notes/notes-router')
 
 const app = express()
 
@@ -20,13 +22,9 @@ app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
-app.get('/notes', (req, res) => {
-    res.send('Note')
-})
+app.use('/api/notes', notesRouter)
 
-app.get('/folders', (req, res) => {
-    res.send('Folder')
-})
+app.use('/api/folders', foldersRouter) 
 
 // app.get('/notes', (req, res, next) => {
 //     const knexInstance = req.app.get('db')
