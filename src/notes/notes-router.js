@@ -25,8 +25,8 @@ notesRouter
  })
  .post(jsonParser, (req, res, next) => {
      const knexInstance = req.app.get('db');
-     const { name, content, folderId, modified, id } = req.body;
-     const newNote = { name, content, folderId, modified, id };
+     const { name, content, folderId, modified } = req.body;
+     const newNote = { name, content, folderId, modified };
 
      //each value in new note is required, verify that they were sent
      for(const [key, value] of Object.entries(newNote)){
@@ -80,8 +80,8 @@ notesRouter
   .patch(jsonParser, (req, res, next) => {
     const knexInstance = req.app.get('db');
     const updateNoteId = res.note.id;
-    const { name, content, folderId, modified, id } = req.body;
-    const updatedNote = { name, content, folderId, modified, id };
+    const { name, content, folderId, modified } = req.body;
+    const updatedNote = { name, content, folderId, modified };
 
     //check that at least one field is getting updated in order to patch
     const numberOfValues = Object.values(updatedNote).filter(Boolean).length 

@@ -13,6 +13,7 @@ const NotesService = {
          .then(rows => { return rows[0] });
     },
     getNoteById(knex, noteId){
+        console.log("noteId", noteId);
         return knex
          .select('*')
          .from('notes')
